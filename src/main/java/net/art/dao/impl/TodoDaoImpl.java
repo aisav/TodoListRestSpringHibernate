@@ -1,7 +1,8 @@
-package net.art.dao;
+package net.art.dao.impl;
 
 import java.util.List;
 
+import net.art.dao.TodoDao;
 import net.art.model.Todo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

@@ -11,30 +11,24 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-//@XmlRootElement (name = "employee")
-//@XmlAccessorType(XmlAccessType.NONE)
 @Entity
 @Table(name = "todo")
 public class Todo implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    //    @XmlAttribute
     @Id
     @GeneratedValue
     private Integer id;
 
-    //    @XmlElement
     @Column(name = "name")
     @NotNull
 
     private String name;
 
-    //    @XmlElement
     @Column(name = "priority")
     @NotNull
     private Integer priority;
 
-    //    @XmlElement
     @Column(name = "email")
     @NotNull
     private String email;
@@ -85,7 +79,7 @@ public class Todo implements Serializable {
 
     @Override
     public String toString() {
-        return "EmployeeVO [id=" + id + ", name=" + name
+        return "Todo [id=" + id + ", name=" + name
                 + ", priority=" + priority + ", email=" + email + "]";
     }
 
