@@ -16,7 +16,7 @@ public class TodoService {
     TodoDao todoDao;
 
     @Transactional
-    public List getAllToDos() {
+    public List getAllTodos() {
         return todoDao.getAllTodos();
     }
 
@@ -26,15 +26,15 @@ public class TodoService {
     }
 
     @Transactional
-    public void addToDo(Todo ToDo) {
+    public void addTodo(Todo ToDo) {
         todoDao.addTodo(ToDo);
     }
 
     @Transactional
-    public void updateToDo(Todo ToDo) { todoDao.updateTodo(ToDo); }
+    public void updateTodo(Todo ToDo) { todoDao.updateTodo(ToDo); }
 
     @Transactional
-    public void deleteToDo(int id) {
+    public void deleteTodo(int id) {
         todoDao.deleteTodo(id);
     }
 }

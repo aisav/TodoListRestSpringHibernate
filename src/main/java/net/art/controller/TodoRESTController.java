@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import net.art.model.Todo;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -19,7 +18,7 @@ public class TodoRESTController
 
     @RequestMapping(value = "/todos", method = RequestMethod.GET, headers = "Accept=application/json")
     public ResponseEntity<List<Todo>> getTodos() {
-        List<Todo> todos = todoService.getAllToDos();
+        List<Todo> todos = todoService.getAllTodos();
         if(todos.isEmpty()){
             return new ResponseEntity<List<Todo>>(HttpStatus.NO_CONTENT);
         }
@@ -37,6 +36,5 @@ public class TodoRESTController
             return new ResponseEntity<Todo>(todo, HttpStatus.OK);
         }
     }
-
 
 }

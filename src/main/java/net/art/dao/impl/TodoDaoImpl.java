@@ -34,8 +34,8 @@ public class TodoDaoImpl implements TodoDao {
     @Transactional
     public Todo getTodo(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Todo todo = (Todo) session.load(Todo.class, new Integer(id));
-        return todo;
+        return  (Todo) session.get(Todo.class, new Integer(id));
+
     }
 
     @Transactional
