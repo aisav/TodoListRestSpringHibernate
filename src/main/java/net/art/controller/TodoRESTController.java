@@ -17,21 +17,26 @@ public class TodoRESTController
     @Autowired
     TodoService todoService;
 
-    @RequestMapping(value = "/getAllTodos", method = RequestMethod.GET, headers = "Accept=application/json")
-    public List getTodos() {
-
-        List listOfTodos = todoService.getAllToDos();
-        return listOfTodos;
+    @RequestMapping(value = "/todos", method = RequestMethod.GET, headers = "Accept=application/json")
+    public ResponseEntity<List<Todo>> getTodos() {
+        List<Todo> todos = todoService.getAllToDos();
+        if(todos.isEmpty()){
+            return new ResponseEntity<List<Todo>>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<List<Todo>>(todos, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/todos/{id}")
-    @Transactional
-    @ResponseBody
+    @RequestMapping(value = "/todos/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
     public ResponseEntity<Todo> getTodoById (@PathVariable("id") int id)
     {
-        if (true) {
-            return null;
+        Todo todo = todoService.getToDo(id);
+        if(todo == null) {
+            return new ResponseEntity<Todo>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
+        else {
+            return new ResponseEntity<Todo>(todo, HttpStatus.OK);
+        }
     }
+
+
 }
