@@ -61,4 +61,15 @@ public class TodoRESTController {
             return new ResponseEntity<Todo>(currentTodo, HttpStatus.OK);
         }
     }
+
+    //------------------- Delete a Todoo --------------------------------------------------------
+
+    @RequestMapping(value = "/todos/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Void> deleteTodo(@PathVariable("id") int id) {
+
+        if (todoService.deleteTodo(id)) {
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        }
+        return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+    }
 }

@@ -40,8 +40,8 @@ public class TodoService {
     }
 
     @Transactional
-    public void deleteTodo(int id) {
-        todoDao.deleteTodo(id);
+    public boolean deleteTodo(int id) {
+        return todoDao.deleteTodo(id);
     }
 }
 

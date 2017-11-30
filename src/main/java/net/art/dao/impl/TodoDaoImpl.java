@@ -53,12 +53,14 @@ public class TodoDaoImpl implements TodoDao {
     }
 
     @Transactional
-    public void deleteTodo(int id) {
+    public boolean deleteTodo(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        Todo p = (Todo) session.load(Todo.class, new Integer(id));
-        if (null != p) {
-            session.delete(p);
+        Todo todo = getTodo(id);
+        if (null != todo) {
+            session.delete(todo);
+            return true;
         }
+        return false;
     }
 }
 

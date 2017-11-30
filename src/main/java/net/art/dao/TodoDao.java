@@ -9,5 +9,5 @@ public interface TodoDao {
      Todo getTodo(int id);
      Todo addTodo(Todo todo);
      Todo updateTodo(Todo todo);
-     void deleteTodo(int id);
+     boolean deleteTodo(int id);
     }
