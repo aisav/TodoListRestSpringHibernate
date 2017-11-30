@@ -46,9 +46,10 @@ public class TodoDaoImpl implements TodoDao {
     }
 
     @Transactional
-    public void updateTodo(Todo todo) {
+    public Todo updateTodo(Todo todo) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(todo);
+        return todo;
     }
 
     @Transactional

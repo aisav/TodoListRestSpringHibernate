@@ -8,6 +8,6 @@ public interface TodoDao {
      List getAllTodos();
      Todo getTodo(int id);
      Todo addTodo(Todo todo);
-     void updateTodo(Todo todo);
+     Todo updateTodo(Todo todo);
      void deleteTodo(int id);
     }

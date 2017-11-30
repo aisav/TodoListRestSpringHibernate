@@ -29,16 +29,16 @@ public class Todo implements Serializable {
     @NotNull
     private Integer priority;
 
-    @Column(name = "email")
+    @Column(name = "status")
     @NotNull
-    private String email;
+    private String status;
 
-    public Todo(Integer id, String name, Integer priority, String email) {
+    public Todo(Integer id, String name, Integer priority, String status) {
         super();
         this.id = id;
         this.name = name;
         this.priority = priority;
-        this.email = email;
+        this.status = status;
     }
 
     public Todo() {
@@ -69,18 +69,18 @@ public class Todo implements Serializable {
         this.priority = priority;
     }
 
-    public String getEmail() {
-        return email;
+    public String getStatus() {
+        return status;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
     public String toString() {
         return "Todo [id=" + id + ", name=" + name
-                + ", priority=" + priority + ", email=" + email + "]";
+                + ", priority=" + priority + ", status=" + status + "]";
     }
 
 }
