@@ -1,6 +1,7 @@
 package net.art.model;
 
 import com.sun.istack.internal.NotNull;
+import net.art.utils.Status;
 
 import java.io.Serializable;
 
@@ -29,11 +30,11 @@ public class Todo implements Serializable {
     @NotNull
     private Integer priority;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    @NotNull
-    private String status;
+    private Status status;
 
-    public Todo(Integer id, String name, Integer priority, String status) {
+    public Todo(Integer id, String name, Integer priority, Status status) {
         super();
         this.id = id;
         this.name = name;
@@ -69,11 +70,11 @@ public class Todo implements Serializable {
         this.priority = priority;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
