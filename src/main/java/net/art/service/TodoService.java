@@ -4,7 +4,8 @@ import net.art.dao.TodoDao;
 import net.art.model.Todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.transaction.annotation.Transactional;
+import javax.transaction.Transactional;
 
 import java.util.List;
 
@@ -26,8 +27,8 @@ public class TodoService {
     }
 
     @Transactional
-    public void addTodo(Todo todo) {
-        todoDao.addTodo(todo);
+    public Todo addTodo(Todo todo) {
+        return todoDao.addTodo(todo);
     }
 
     @Transactional
